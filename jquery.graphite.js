@@ -14,6 +14,9 @@
         return this.each(function () {
             var $this = $(this);
 
+            // Preserve initial params
+            $this.data("initialGraphOptions", options);
+
             $this.data("graphOptions", settings);
             $.fn.graphite.render($this, settings);
         });
@@ -57,7 +60,7 @@
         });
     };
 
-    // Default settings. 
+    // Default settings.
     // Override with the options argument for per-case setup
     // or set $.fn.graphite.defaults.<value> for global changes
     $.fn.graphite.defaults = {
